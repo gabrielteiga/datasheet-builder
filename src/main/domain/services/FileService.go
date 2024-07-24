@@ -39,7 +39,7 @@ func (f *FileService) FormatFiles(path string) {
 	var m Schema
 
 	byteFile, err := f.readJson(path)
-	if err == nil {
+	if err != nil {
 		fmt.Println("Error reading file: ", err)
 		os.Exit(1)
 	}
@@ -51,7 +51,7 @@ func (f *FileService) FormatFiles(path string) {
 	}
 
 	// only for debugging purposes
-
+	fmt.Println(m)
 }
 
 func (f *FileService) readJson(path string) ([]byte, error) {
