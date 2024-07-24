@@ -21,25 +21,6 @@ type Message struct {
 	Telefone string `json: "Telefone"`
 }
 
-func (f *FileService) FormatFiles(path string) {
-	var m Schema
-
-	byteFile := f.ReadJson(path)
-	if byteFile == nil {
-		fmt.Println("Error reading file!")
-		os.Exit(1)
-	}
-
-	err := json.Unmarshal(byteFile, &m)
-	if err != nil {
-		fmt.Println("Error unmarshalling JSON:", err)
-		os.Exit(1)
-	}
-
-	// only for debugging purposes
-	fmt.Println(m.Table)
-}
-
 func (f *FileService) GetFiles(path string) []string {
 	filesFromDir, err := os.ReadDir(path)
 	if err != nil {
@@ -54,14 +35,32 @@ func (f *FileService) GetFiles(path string) []string {
 	return files
 }
 
-func (f *FileService) ReadJson(path string) []byte {
+func (f *FileService) FormatFiles(path string) {
+	var m Schema
+
+	byteFile, err := f.readJson(path)
+	if err == nil {
+		fmt.Println("Error reading file: ", err)
+		os.Exit(1)
+	}
+
+	err = json.Unmarshal(byteFile, &m)
+	if err != nil {
+		fmt.Println("Error unmarshalling JSON: ", err)
+		os.Exit(1)
+	}
+
+	// only for debugging purposes
+
+}
+
+func (f *FileService) readJson(path string) ([]byte, error) {
 	fmt.Println(path)
 	rawFile, err := os.ReadFile(path)
 
 	if err != nil {
-		fmt.Println("Error reading file: ", err)
-		return nil
+		return nil, fmt.Errorf("error reading file: %v", err)
 	}
 
-	return rawFile
+	return rawFile, nil
 }
