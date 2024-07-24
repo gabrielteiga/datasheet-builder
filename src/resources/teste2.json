@@ -1,0 +1,11 @@
+{
+	"table": "cliente",
+	"rows":
+	[
+		{
+			"Nome": "gabriel",
+			"Email": "gabriel@teste.com.br",
+			"Telefone": ""
+		}
+    ]
+}

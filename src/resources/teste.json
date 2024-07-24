@@ -1,0 +1,31 @@
+{
+	"table": "cliente",
+	"rows":
+	[
+		{
+			"Nome": "gabriel teste",
+			"Email": "gabriel.teste@gmail.com",
+			"Telefone": "(55) 999999999"
+		},
+		{
+			"Nome": "eduardo",
+			"Email": "eduardo@hotmail.com",
+			"Telefone": "(55) 999999999"
+		},
+		{
+			"Nome": "Roberto",
+			"Email": "roberto@hotmail.com",
+			"Telefone": "(55) 999999999"
+		},
+		{
+			"Nome": "Emilly",
+			"Email": "emilly@gmail.com",
+			"Telefone": "(55) 999999999"
+		},
+		{
+			"Nome": "Pedro",
+			"Email": "pedro@gmail.com",
+			"Telefone": "(55) 999999999"
+		}
+	]
+}
